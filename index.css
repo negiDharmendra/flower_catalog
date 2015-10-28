@@ -1,0 +1,30 @@
+body{
+	width: 80%;
+	margin: auto;
+}
+#header{
+	width: auto;
+	height: 80px;
+	text-align: center;
+	font-size: 40px;
+	border-bottom: 4px solid gray;
+	color: gold;
+}
+#img{
+	float: left;
+	margin: 0 20px 0 0;
+}
+#nav{
+	float: right;
+	margin-top: 40px;
+	line-height: 30px;
+	font-size: 20px;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+#animated_img:active{
+	visibility: hidden;
+}
+
