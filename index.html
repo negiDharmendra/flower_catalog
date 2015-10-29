@@ -8,10 +8,18 @@
 	<div id="header"> Flower Catalog</div>
 	<div id="img"><img src="./pbase-agerantum.png"></div>
 	<div id="nav">
-			<a href="./abeliophyllum.html" onclick="hideAnimatedImage()">Abeliophyllum</a></br>
+			<a href="./abeliophyllum.html">Abeliophyllum</a></br>
 			<a href="./ageratum.html">Ageratum</a></br>
-			<a id="animated_img"><img  src="./user_requirement/animated-flower-image-0021.gif" ></a></br>
+			<input id="animated_img" type="image" onclick="hideAnimated_img()" src="./animated-flower-image-0021.gif" ></br>
 			<a href="./guest_book.html">Guest Book</a>
 	</div>
+<script type="text/javascript">
+	function hideAnimated_img(){
+		document.getElementById('animated_img').style.display='none'
+		setTimeout(function()
+			{ document.getElementById("animated_img").style.display="inline" },
+			 1000);
+	};
+</script>
 </body>
 </html>

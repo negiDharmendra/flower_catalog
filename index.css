@@ -26,5 +26,6 @@ a{
 }
 #animated_img:active{
 	visibility: hidden;
+	visibility: visible;
 }
 
