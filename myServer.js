@@ -19,7 +19,7 @@ function requestHandler(req,res){
 		});
 		req.on('end',function(){
 			var dataToBeAdded = "<p>"+new Date()+"</p></br>"+"<p>"+name+"</p></br>"+"<p>"+comment+"</p></br></br>";
-			fs.appendFile('./guest_book.html',dataToBeAdded)
+			fs.appendFileSync('./guest_book.html',dataToBeAdded)
 			var text = fs.readFileSync(filename)
 			res.write(text)
 			res.end()
