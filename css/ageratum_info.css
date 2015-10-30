@@ -14,17 +14,16 @@ body{
 	float: left;
 	margin: 10px 20px 0 0;
 }
-#nav{
+#abeliophyllum_info{
 	float: right;
-	margin-top: 40px;
-	line-height: 30px;
+	width: 28%;
 	font-size: 20px;
+	line-height: 40px;
 }
-a{
-	color: black;
+
+h{
+	color:gold;
 }
-#animated_img:active{
-	visibility: hidden;
-	visibility: visible;
-}
+
+
 

@@ -4,12 +4,15 @@ var querysString = require("querystring")
 function requestHandler(req,res){
 	var requestData='';
 	var myFiles = [
-		"./abeliophyllum.html", "./ageratum.html", "./guest_book.html", "./index.html",
-		"./abeliophyllum_info.css", "./ageratum_info.css", "./index.css","./guest_book_info.css","./pbase-agerantum.png",
-		"./pbase-abeliophyllum.jpg", "./pbase-agerantum.jpg","./animated-flower-image-0021.gif"
-		]
+		"./html/abeliophyllum.html", "./html/ageratum.html", "./html/guest_book.html",
+		 "./html/index.html","./css/abeliophyllum_info.css", "./css/ageratum_info.css",
+		 "./css/index.css","./css/guest_book_info.css","./images/pbase-agerantum.png",
+		"./images/pbase-abeliophyllum.jpg", "./images/pbase-agerantum.jpg",
+		"./images/animated-flower-image-0021.gif","./html/guest_comment_iframe.html"
+		];
 	var url = req.url.split('?')[0];
-	var filename = req.url.length>1&&"."+url||"./index.html";
+	var filename = req.url.length>1&&"."+url||"./html/index.html";
+	console.log("url=>"+url+"\nfilename==>",filename,"\n ==========",req.method)
 	if(req.method=='POST'){
 		var name = ''; var comment = '';
 		req.on('data',function(data){
@@ -19,16 +22,12 @@ function requestHandler(req,res){
 		});
 		req.on('end',function(){
 			var time = new Date().toString().substr(0,24)
-			var dataToBeAdded = "<div class='comment_section'><div id='time_added'>"+time+"</div><div><h3>Name:</h3><div id='name_added'>"+name+"</div></div><div><h3>Comment:</h3><div id='comment_added'>"+comment+"</div></div></div>newComment";
-			fs.appendFileSync('./guest_book_data.text',dataToBeAdded,'utf-8');
-			var closingTag = "</div></div></body></html>";
-			var fileData = fs.readFileSync(filename,'utf-8').split(/\n\r|\n\t|\n/).slice(0,18);
-			var commentData = fs.readFileSync('./guest_book_data.text','utf-8').split(/newComment/).reverse();
-			commentData.push(closingTag)
-			var text = fileData.concat(commentData).join('\n\r');
-			fs.writeFileSync(filename,text);
-			var presentableContent = fs.readFileSync(filename)
-			res.write(presentableContent)
+			var dataToBeAdded = "<div class='guest_comment'><h>"+time+"</h><div><h>Name:</h><div id='name'>"+name+"</div></div><div><h>Comment:</h><div id='comment'>"+comment+"</div></div></div>";
+			var fileData = fs.readFileSync("./html/guest_comment_iframe.html",'utf-8').split(/\n\r|\n\t|\n/);
+			fileData.splice(26,0,dataToBeAdded)
+			fs.writeFileSync("./html/guest_comment_iframe.html",fileData.join('\n'));
+			res.writeHead(301,{date: new Date(),'content-type': 'text/html',
+			  'content-length': fileData.length,connection: 'close',Location:"../html/guest_book.html"});
 			res.end()
 		})
 	}
@@ -37,7 +36,10 @@ function requestHandler(req,res){
 		res.write(text);
 		res.end();
 	}
-	else res.end()
+	else {
+		res.write("<html><head><body><h style='ont-size:30px;'>Error 404</h></body></head></html>");
+		res.end()
+	}
 }
 http.createServer(requestHandler).listen(4000,function(){
 	console.log("Hello I'm listening at port 4000");

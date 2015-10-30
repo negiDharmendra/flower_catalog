@@ -12,19 +12,19 @@ body{
 }
 #img{
 	float: left;
-	margin: 10px 20px 0 0;
+	margin: 0 20px 0 0;
 }
-#nav{
+#abeliophyllum_info{
 	float: right;
-	margin-top: 40px;
-	line-height: 30px;
+	width: 40%;
 	font-size: 20px;
+	line-height: 40px;
 }
-a{
-	color: black;
+#index{
 }
-#animated_img:active{
-	visibility: hidden;
-	visibility: visible;
+h{
+	color:gold;
 }
+
+
 
