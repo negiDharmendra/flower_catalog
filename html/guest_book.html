@@ -3,15 +3,16 @@
 <head>
 	<title></title>
 <link rel="stylesheet" type="text/css" href="../css/guest_book_info.css">
+<link rel="stylesheet" type="text/css" href="../css/commonStyle.css">
 </head>
 <body>
 	<div id="header"> <a id="index" href="../html/index.html"><<</a> Flower Catalog</div>
 	<div id="place_for_comment">
 		<h1>Leave a comment</h1>
 		<form method="POST">
-			Name:<input id="name" type="text" name="name"><br><br>
+			Name:<input id="name" type="text" name="name" required><br><br>
 			Comment:</br>
-			<textarea id="comment" type="text" name="comment"></textarea></br>
+			<textarea id="comment" type="text" name="comment" required></textarea></br>
 			<button id="submit" >Submit</button>
 		</form>
 	</div>

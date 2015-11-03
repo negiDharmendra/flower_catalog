@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title></title>
-<link rel="stylesheet" type="text/css" href="../css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/commonStyle.css">
 </head>
 <body>
 	<div id="header"> Flower Catalog</div>
@@ -10,16 +10,9 @@
 	<div id="nav">
 			<a href="../html/abeliophyllum.html">Abeliophyllum</a></br>
 			<a href="../html/ageratum.html">Ageratum</a></br>
-			<input id="animated_img" type="image" onclick="hideAnimated_img()" src="../images/animated-flower-image-0021.gif" ></br>
+			<img id="animated_img" onclick="hideAnimated_img()" src="../images/animated-flower-image-0021.gif"></br>
 			<a href="../html/guest_book.html">Guest Book</a>
 	</div>
 </body>
-<script type="text/javascript" >
-	function hideAnimated_img(){
-		document.getElementById('animated_img').style.display='none'
-		setTimeout(function()
-			{ document.getElementById("animated_img").style.display="inline" },
-			 1000);
-	};
-</script>
+<script type="text/javascript" src="../javascript/index.js"></script>
 </html>

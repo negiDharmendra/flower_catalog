@@ -1,0 +1,27 @@
+body{
+	width: 90%;
+	margin: auto;
+	font-size: 20px;
+	line-height: 30px;
+}
+#header{
+	width: auto;
+	height: 80px;
+	text-align: center;
+	font-size: 40px;
+	border-bottom: 4px solid gray;
+	margin-top: 10px;
+	color: gold;
+}
+#img{
+	float: left;
+	margin: 1% 10% 0 0;
+}
+#nav{
+	float: left;
+	margin-top: 5%;
+	line-height: 30px;
+	font-size: 20px;
+}
+
+
